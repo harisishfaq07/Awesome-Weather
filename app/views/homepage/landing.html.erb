@@ -1,0 +1,42 @@
+<br><br><br><br><br>
+    <figure class="text-center">
+    <%= image_tag "weather-logo.png" , class: "image-size" %>
+    <blockquote class="blockquote">
+      <p>Wherever you go, no matter what the weather, always bring your own sunshine</p>
+    </blockquote>
+    <figcaption class="blockquote-footer">
+          Awesome <cite title="Source Title">Weather</cite>
+    </figcaption>
+</figure>
+
+
+<div class = "center" >
+      <button type="button" class="btn btn-primary position-relative" id ="click">
+        Get Started
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-drizzle-fill" viewBox="0 0 16 16">
+        <path d="M4.158 12.025a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm6 0a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm-3.5 1.5a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm6 0a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 1 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm.747-8.498a5.001 5.001 0 0 0-9.499-1.004A3.5 3.5 0 1 0 3.5 11H13a3 3 0 0 0 .405-5.973z"/>
+      </svg>
+          <span class="visually-hidden">unread messages</span>
+        </span>
+      </button>
+</div>
+
+<div class="open">
+    <%= form_for :sessions , url: weather_path do |s|%>
+        <p class = "center">
+        <%= s.select :body, ApplicationRecord.countries %>
+        <%= s.submit "Search" , class: "btn btn-primary btn-sm" %>
+        </p>
+    <%end%>
+ </div>
+
+<script>
+  $(document).ready(function(){
+    $(".open").hide()
+    $("#click").click(function(){
+      $("#click").hide();
+      $(".open").slideDown();
+    })
+  })
+</script>

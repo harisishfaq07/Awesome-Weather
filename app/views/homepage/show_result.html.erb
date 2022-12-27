@@ -1,0 +1,32 @@
+
+<div class = "center-content" >
+<div class="card" style="width: 20rem;">
+<% if @result["weather"][0]["main"].downcase == "clouds" %>
+  <%= image_tag "cloudy.jpeg" , class: "card-img-top"  %>
+<% elsif  @result["weather"][0]["main"].downcase == "rain" %>
+<%= image_tag "rainy.webp" , class: "card-img-top"  %>
+<% elsif  @result["weather"][0]["main"].downcase == "clear" %>
+<%= image_tag "clear.jpeg" , class: "card-img-top"  %>
+<% elsif  @result["weather"][0]["main"].downcase == "sunny" %>
+<%= image_tag "sunny.jpeg" , class: "card-img-top"  %>
+<% elsif  @result["weather"][0]["main"].downcase == "thunderstorm" %>
+<%= image_tag "thunder.jpeg" , class: "card-img-top"  %>
+<% elsif  @result["weather"][0]["main"].downcase == "snow" %>
+<%= image_tag "snow.jpeg" , class: "card-img-top"  %>
+  <% end %>
+  <div class="card-body">
+    <h5 class="card-title">Weather Detail</h5>
+   <%= Time.now.strftime("%B %e, %Y - %A ") %>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Counry: <strong> <%= @result["name"] %> </strong></li>
+    <li class="list-group-item">Condition: <strong> <%= @result["weather"][0]["main"] %></strong></li>
+    <li class="list-group-item">Temperature: <strong> <%= ApplicationRecord.into_celcius(@result["main"]["temp"]) %> C </strong></li>
+    <li class="list-group-item">Humidity: <strong> <%= @result["main"]["humidity"] %>%</strong></li>
+    <li class="list-group-item">Wind Speed: <strong> <%= @result["wind"]["speed"] %></strong></li>
+  </ul>
+  <div class="card-body">
+  <%= link_to "Back" , :back , class: "btn btn-primary btn-sm" %>
+  </div>
+</div>
+</div>

@@ -1,0 +1,23 @@
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+body {
+//   background: url(<%= asset_path 'weather.jpg' %>);
+background: url("weather.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.image-size {
+    width: 400px;
+   
+}
+
+.center{
+  padding-top: 50px;
+  text-align: center;
+}
+
+.center-content{
+padding: 5% 40% 0% 40%;
+}
