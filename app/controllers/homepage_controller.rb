@@ -1,7 +1,7 @@
 class HomepageController < ApplicationController
     require 'rest-client'
 
-# Application root page
+# Application root page 123
     def landing
     end   
 
