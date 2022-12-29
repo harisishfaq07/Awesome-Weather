@@ -26,17 +26,33 @@
     <%= form_for :sessions , url: weather_path do |s|%>
         <p class = "center">
         <%= s.select :body, ApplicationRecord.countries %>
-        <%= s.submit "Search" , class: "btn btn-primary btn-sm" %>
+        <%= s.submit "Search" , class: "btn btn-primary btn-sm" , id: "me" %>
         </p>
     <%end%>
  </div>
-
+ <p id="img" class= "centerr"><%= image_tag 'load3.svg' %></p>
 <script>
   $(document).ready(function(){
+    $("#img").hide();
     $(".open").hide()
     $("#click").click(function(){
       $("#click").hide();
       $(".open").slideDown();
     })
+$("#me").click(function(){
+  $("#img").css("display","block");
+
+})
   })
 </script>
+<style>
+.centerr {
+  width: 100%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  position: absolute; /*or fixed*/
+  left: 50%;
+  top: 50%;
+  text-align: center;
+}
+</style>
